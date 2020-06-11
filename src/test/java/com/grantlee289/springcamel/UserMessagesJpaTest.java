@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.Assert.assertTrue;
 
@@ -28,12 +29,13 @@ public class UserMessagesJpaTest {
     @Transactional("userTransactionManager")
     public void createUser() {
         UserMessage userMessage = new UserMessage();
-        userMessage.setId(123456);
+
+        userMessage.setId(UUID.randomUUID().toString());
         userMessage.setName("Test Name 2");
         userMessage.setMessage("Test Message 2");
         userMessage = userMessageRepository.save(userMessage);
 
-        final Optional<UserMessage> results = userMessageRepository.findById(userMessage.getId());
+        final Optional<UserMessage> results = Optional.of(userMessageRepository.findByName(userMessage.getName()));
         assertTrue(results.isPresent());
     }
 }

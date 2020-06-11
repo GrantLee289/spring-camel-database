@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 public class ProcessToDb implements Processor {
 
@@ -26,8 +28,10 @@ public class ProcessToDb implements Processor {
 
         Message message = exchange.getIn().getBody(Message.class);
 
+        //TODO: extract json message properties to set into userMessage DAO properties before pushing to db...
+
         UserMessage userMessage = new UserMessage();
-        userMessage.setId(1234567);
+        userMessage.setId(UUID.randomUUID().toString());
         userMessage.setName("Test Name 3");
         userMessage.setMessage("Test Message 3");
         userMessage = userMessageRepository.save(userMessage);

@@ -11,7 +11,7 @@ public class UserMessage {
 
   @Id
   @Column(name = "ID")
-  private int id;
+  private String id;
 
   @Column(name = "Name")
   private String name;
@@ -26,11 +26,11 @@ public class UserMessage {
     this.message = message;
   }
 
-  public int getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(String id) {
     this.id = id;
   }
 
