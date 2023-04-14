@@ -12,7 +12,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <spring.version>2.2.6.RELEASE</spring.version>
-        <camel.version>3.0.0-RC3</camel.version>
+        <camel.version>3.2.0</camel.version>
         <hibernate.version>5.4.15.Final</hibernate.version>
 <!--        <h2.version>1.4.200</h2.version>-->
 <!--        <postgre.sql.version>42.2.12</postgre.sql.version>-->
